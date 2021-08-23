@@ -197,6 +197,7 @@ func (ht *serverHandlerTransport) WriteStatus(s *Stream, st *status.Status) erro
 		ht.rw.(http.Flusher).Flush()
 
 		h := ht.rw.Header()
+		fmt.Print("------Grpc-Status-------")
 		h.Set("Grpc-Status", fmt.Sprintf("%d", st.Code()))
 		if m := st.Message(); m != "" {
 			h.Set("Grpc-Message", encodeGrpcMessage(m))

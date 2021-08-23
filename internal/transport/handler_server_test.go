@@ -327,6 +327,7 @@ func handleStreamCloseBodyTest(t *testing.T, statusCode codes.Code, msg string) 
 		func(s *Stream) { go handleStream(s) },
 		func(ctx context.Context, method string) context.Context { return ctx },
 	)
+
 	wantHeader := http.Header{
 		"Date":         {},
 		"Content-Type": {"application/grpc"},
